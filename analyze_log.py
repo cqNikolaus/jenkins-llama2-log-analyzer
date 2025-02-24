@@ -49,7 +49,7 @@ class LocalLLMClient:
     def analyze_errors(self, text):
         prompt = "Hier sind die Logzeilen:\n\n" + text
         try:
-            r = requests.post(self.llm_url, json={"prompt": prompt}, timeout=30)
+            r = requests.post(self.llm_url, json={"prompt": prompt}, timeout=240)
             r.raise_for_status()
             return r.json().get("response", "")
         except Exception as e:
