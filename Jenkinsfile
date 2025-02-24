@@ -5,6 +5,11 @@ pipeline {
         string(name: 'FAILED_BUILD_NUMBER', defaultValue: '', description: '')
     }
     stages {
+        stage('Checkout') {
+          steps {
+            sh "cp -r /opt/local_repo ."
+          }
+        }
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t analyze-log-image .'
