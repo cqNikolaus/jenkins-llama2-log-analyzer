@@ -53,7 +53,7 @@ class LocalLLMClient:
             r.raise_for_status()
             return r.json().get("response", "")
         except Exception as e:
-            return "Fehler bei der Anfrage an das lokale LLM: {e}"
+            return f"Fehler bei der Anfrage an das lokale LLM: {e}"
 
 class BuildAnalyzer:
     def __init__(self, jenkins_base_url, job_name, build_number, jenkins_user, jenkins_token):
