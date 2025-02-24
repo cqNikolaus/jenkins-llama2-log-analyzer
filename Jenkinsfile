@@ -21,6 +21,7 @@ pipeline {
                         -e FAILED_JOB_NAME=${FAILED_JOB_NAME} \
                         -e FAILED_BUILD_NUMBER=${FAILED_BUILD_NUMBER} \
                         -e LLM_API_URL="http://llm-api-container:8000/predict" \
+                        --network llm-net \
                         analyze-log-image > analysis_report.txt
                     '''
                 }
